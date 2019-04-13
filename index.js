@@ -49,6 +49,7 @@ const services = [
   }
 ];
 
+// -----------------------------------
 const filterByTechnician = technician => {
   const result = services
     .map(service => {
@@ -64,16 +65,41 @@ const showServices = services => {
   services.forEach(service => {
     console.log(service.name);
   });
+  return showServices;
 };
 
 const alertServices = services => {
   services.forEach(service => {
-    alert(service.name);
+    console.log(`Anda terdaftar sebagai teknisi ${service.name}`);
   });
 };
 
-const technicianInput = prompt("Masukkan nama teknisi");
+const showtechnician = () => {
+  const technicianInput = prompt("Masukkan nama anda");
 
-const filteredServices = filterByTechnician(technicianInput);
+  const filteredServices = filterByTechnician(technicianInput);
 
-alertServices(filteredServices);
+  alertServices(filteredServices);
+};
+// -----------------------------------
+const filterByName = name => {
+  const result = services
+    .map(service => {
+      return service;
+    })
+    .filter(service => {
+      return service(name);
+    });
+  return result;
+};
+
+const showName = services => {
+  services.forEach(service => {
+    console.log(service.name);
+  });
+};
+
+const showservice = () => {
+  console.log("Layanan kami antara lain memperbaiki:");
+  showName(services);
+};

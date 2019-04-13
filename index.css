@@ -1,0 +1,9 @@
+.home {
+  height: 100vh;
+}
+
+.jumbotron {
+  background-image: url(/image/fixit-background.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
