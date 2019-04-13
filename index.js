@@ -1,11 +1,11 @@
-const service = [
+const services = [
   {
     id: 1,
     name: "Air Conditioner",
     estimatedTime: 6, //hours
     price: 300000, // idr
     guaranteed: 7, // days
-    technician: ["taslim", "joe"]
+    technicians: ["taslim", "joe"]
   },
   {
     id: 2,
@@ -13,7 +13,7 @@ const service = [
     estimatedTime: 9,
     price: 500000,
     guaranteed: 14,
-    technician: ["mayer", "john"]
+    technicians: ["mayer", "john"]
   },
   {
     id: 3,
@@ -21,7 +21,7 @@ const service = [
     estimatedTime: 6,
     price: 600000,
     guaranteed: 14,
-    technician: ["Atkinson", "Rowan"]
+    technicians: ["Atkinson", "Rowan"]
   },
   {
     id: 4,
@@ -29,7 +29,7 @@ const service = [
     estimatedTime: 3,
     price: 300000,
     guaranteed: 7,
-    technician: ["obelisk", "felix"]
+    technicians: ["obelisk", "felix"]
   },
   {
     id: 5,
@@ -37,7 +37,7 @@ const service = [
     estimatedTime: 1,
     price: 800000,
     guaranteed: 7,
-    technician: ["sastro", "dian"]
+    technicians: ["sastro", "dian"]
   },
   {
     id: 6,
@@ -49,13 +49,31 @@ const service = [
   }
 ];
 
-const filterByTechnicianName = technician => {
-  const result = service
-    .map(technician => {
-      return technician;
+const filterByTechnician = technician => {
+  const result = services
+    .map(service => {
+      return service;
     })
-    .filter(technician => {
+    .filter(service => {
       return service.technicians.includes(technician);
     });
   return result;
 };
+
+const showServices = services => {
+  services.forEach(service => {
+    console.log(service.name);
+  });
+};
+
+const alertServices = services => {
+  services.forEach(service => {
+    alert(service.name);
+  });
+};
+
+const technicianInput = prompt("Masukkan nama teknisi");
+
+const filteredServices = filterByTechnician(technicianInput);
+
+alertServices(filteredServices);
